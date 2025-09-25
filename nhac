@@ -12,17 +12,18 @@ local textLabel = Instance.new("TextLabel")
 textLabel.Size = UDim2.new(0.8, 0, 0.2, 0)
 textLabel.Position = UDim2.new(0.1, 0, 0.4, 0)
 textLabel.BackgroundTransparency = 1
-textLabel.TextColor3 = Color3.new(1, 1, 0) -- màu vàng
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 0) -- màu vàng
 textLabel.Font = Enum.Font.SourceSansBold
 textLabel.TextScaled = true
 textLabel.TextStrokeTransparency = 0 -- viền chữ
-textLabel.TextStrokeColor3 = Color3.new(0,0,0)
+textLabel.TextStrokeColor3 = Color3.fromRGB(0,0,0)
 textLabel.Parent = screenGui
 
 -- ====== Sound setup ======
 local sound = Instance.new("Sound")
-sound.SoundId = "rbxassetid://128390756441021" -- Thay bằng Asset ID nhạc bạn đã upload
+sound.SoundId = "rbxassetid://128390756441021"
 sound.Parent = workspace
+
 sound.Loaded:Wait() -- Chờ nhạc load xong
 sound:Play()
 
@@ -78,7 +79,7 @@ local LYRICS = {
     {Time = 234, Text = "Với con thế thôi, còn gì đẹp hơn?"}
 }
 
--- ====== Cập nhật lời theo nhạc ======
+-- ====== Hiển thị lời theo nhạc ======
 game:GetService("RunService").RenderStepped:Connect(function()
     local t = sound.TimePosition
     for i = #LYRICS, 1, -1 do
